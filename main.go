@@ -17,7 +17,7 @@ func main() {
 		Addr:    addr,
 		Handler: mux,
 	}
-
 	log.Printf("server is running on %s", addr)
+
 	log.Fatal(srv.ListenAndServe())
 }

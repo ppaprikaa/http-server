@@ -1,14 +1,10 @@
 pipeline {
-    agent {
-        node {
-            label "staging"
-        }
-    }    
+    agent any
 
     stages {
-        stage ("Initial") {
+        stage("Initial") {
             steps {
-                echo "Initial"
+                echo "Hello"
             }
         }
     }  

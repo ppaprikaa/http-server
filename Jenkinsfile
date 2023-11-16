@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label "staging"
+        }
+    }
 
     stages {
         stage("Initial") {
@@ -7,5 +11,5 @@ pipeline {
                 echo "Hello"
             }
         }
-    }  
+    }
 }

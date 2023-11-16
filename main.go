@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	addr := ":5000"
+	addr := ":6000"
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {

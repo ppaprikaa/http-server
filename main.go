@@ -1,14 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 )
 
 func main() {
-	port := 5000
-	addr := fmt.Sprintf(":%d", port)
+	addr := ":5000"
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/", func(w http.ResponseWriter, _ *http.Request) {

@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage("Create backup") {
             steps {
+                echo " Creating Backup"
                 sh """
                 if docker image rm -f http-server:backup; then
 	                echo "Previous backup deleted"
@@ -21,11 +22,14 @@ pipeline {
         }
 
         stage("Unit-testing") {
-            steps 
+            steps {
+                echo "Unit testing started"
+            }
         }
 
         stage("Build") {
             steps {
+                echo "Building"
                 sh """
                 if docker image rm -f http-server:build; then
 	                echo "Previous build deleted"
@@ -39,6 +43,7 @@ pipeline {
 
         stage("Deploy build") {
             steps {
+                echo "Deploying build, if failed deploy backup"
                 sh """
                 if docker container rm -f http-server; then
 	                echo "Stopped old artifact instance"

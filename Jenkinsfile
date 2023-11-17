@@ -20,6 +20,10 @@ pipeline {
             }
         }
 
+        stage("Unit-testing") {
+            steps 
+        }
+
         stage("Build") {
             steps {
                 sh """
@@ -40,10 +44,10 @@ pipeline {
 	                echo "Stopped old artifact instance"
                 fi
 
-                args="--restart on-failure:5 -d --name http-server -p 5555:5000"
+                args=""
 
-                if ! docker run $args http-server:build; then
-                    docker run $args http-server:backup
+                if ! docker run --restart on-failure:5 -d --name http-server -p 5000:80 http-server:build; then
+                    docker run --restart on-failure:5 -d --name http-server -p 5000:80 http-server:backup
                 fi
                 """
             }

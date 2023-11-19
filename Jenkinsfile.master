@@ -14,7 +14,7 @@ pipeline {
 	                echo Previous build deleted
                 fi
 
-                docker build -t http-server:build --file Dockerfile.staging . 
+                docker build -t http-server:build --file Dockerfile.master . 
                 echo Artifact build completed
                 """
             }
